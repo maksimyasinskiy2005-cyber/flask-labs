@@ -17,28 +17,28 @@ def validate_image_size(form, field):
 class ContactForm(FlaskForm):
     """Форма зворотного зв'язку"""
     name = StringField(
-        "Name",
+        "Ім'я користувача",
         validators=[
             DataRequired(message="Це поле є обов'язковим"),
             Length(min=4, max=10, message="Ім'я повинно містити від 4 до 10 символів")
         ]
     )
     email = StringField(
-        "Email",
+        "Електронна пошта",
         validators=[
             DataRequired(message="Це поле є обов'язковим"),
             Email(message="Некоректний формат електронної пошти")
         ]
     )
     phone = StringField(
-        "Phone",
+        "Номер телефону",
         validators=[
             DataRequired(message="Це поле є обов'язковим"),
             Regexp(r'^\+380\d{9}$', message="Формат телефону повинен бути: +380XXXXXXXXX")
         ]
     )
     subject = SelectField(
-        "Subject",
+        "Тема звернення",
         choices=[
             ('general', 'Загальне питання'),
             ('tech', 'Технічна підтримка'),
@@ -48,13 +48,13 @@ class ContactForm(FlaskForm):
         validators=[DataRequired(message="Оберіть тему")]
     )
     message = TextAreaField(
-        "Message",
+        "Повідомлення",
         validators=[
             DataRequired(message="Це поле є обов'язковим"),
             Length(max=500, message="Повідомлення не повинно перевищувати 500 символів")
         ]
     )
-    submit = SubmitField("Send Message")
+    submit = SubmitField("Надіслати повідомлення")
 
 class ProductForm(FlaskForm):
     """Форма для створення та редагування товарів"""
@@ -71,7 +71,7 @@ class ProductForm(FlaskForm):
         validators=[DataRequired(message="Заповніть опис товару")]
     )
     price = DecimalField(
-        "Ціна",
+        "Ціна (грн)",
         places=2,
         validators=[
             DataRequired(message="Вкажіть ціну"),
@@ -81,25 +81,25 @@ class ProductForm(FlaskForm):
     category = SelectField(
         "Категорія",
         choices=[
-            ('electronics', 'Електроніка'),
-            ('clothing', 'Одяг'),
-            ('books', 'Книги'),
-            ('home', 'Дім та сад')
+            ('electronics', '📱 Електроніка'),
+            ('clothing', '👕 Одяг та стиль'),
+            ('books', '📚 Книги та навчання'),
+            ('home', '🏡 Дім та затишок')
         ],
         validators=[DataRequired(message="Оберіть категорію")]
     )
     quantity = IntegerField(
-        "Кількість",
+        "Кількість у наявності",
         validators=[
             InputRequired(message="Укажіть кількість"),
             NumberRange(min=0, message="Кількість не може бути від'ємною")
         ]
     )
     image = FileField(
-        "Зображення товару",
+        "Фотографія товару",
         validators=[
             FileAllowed(['jpg', 'jpeg', 'png'], 'Дозволено тільки формати PNG, JPG та JPEG'),
             validate_image_size
         ]
     )
-    submit = SubmitField("Зберегти")
+    submit = SubmitField("Зберегти товар")

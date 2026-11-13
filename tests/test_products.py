@@ -9,7 +9,7 @@ class ProductsTestCase(unittest.TestCase):
         app.config['WTF_CSRF_ENABLED'] = False
         self.client = app.test_client()
 
-        # Тимчасова БД для тестування
+        os.makedirs('data', exist_ok=True)
         self.test_db_path = 'data/test_products.json'
         if os.path.exists(self.test_db_path):
             os.remove(self.test_db_path)
@@ -33,7 +33,6 @@ class ProductsTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn('Тестовий телефон'.encode('utf-8'), response.data)
 
-        # Перевірка детальної сторінки
         response_detail = self.client.get('/product/1')
         self.assertEqual(response_detail.status_code, 200)
         self.assertIn('Детальний опис тестового смартфона'.encode('utf-8'), response_detail.data)

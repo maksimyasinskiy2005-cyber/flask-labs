@@ -1,0 +1,173 @@
+/* Modern Patriotic Ukrainian Cyber-Style Theme */
+:root {
+  --bg-dark: #0a0f1d;
+  --panel-bg: rgba(15, 23, 42, 0.85);
+  --ua-blue: #0057b7;
+  --ua-blue-glow: #0072ff;
+  --ua-yellow: #ffd700;
+  --ua-yellow-glow: #ffea00;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --border-light: rgba(0, 87, 183, 0.35);
+  --border-yellow: rgba(255, 215, 0, 0.4);
+}
+
+body {
+  background-color: var(--bg-dark);
+  background-image: 
+    radial-gradient(circle at 10% 10%, rgba(0, 87, 183, 0.15) 0%, transparent 45%),
+    radial-gradient(circle at 90% 90%, rgba(255, 215, 0, 0.12) 0%, transparent 45%),
+    linear-gradient(180deg, #070a14 0%, #0a0f1d 100%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+}
+
+/* Ukrainian Accent Strip */
+.ua-flag-bar {
+  height: 4px;
+  background: linear-gradient(90deg, #0057b7 50%, #ffd700 50%);
+  width: 100%;
+}
+
+/* Header & Nav */
+.navbar-patriotic {
+  background: rgba(10, 15, 29, 0.9) !important;
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: 0 4px 25px rgba(0, 87, 183, 0.2);
+}
+
+.brand-text {
+  font-weight: 900;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #38bdf8 0%, #ffd700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.4rem;
+}
+
+/* Cards & Glassmorphism */
+.card-patriotic {
+  background: var(--panel-bg) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-light) !important;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-patriotic:hover {
+  border-color: var(--ua-yellow) !important;
+  box-shadow: 0 12px 35px rgba(255, 215, 0, 0.18), 0 0 15px rgba(0, 87, 183, 0.2);
+  transform: translateY(-4px);
+}
+
+/* Buttons */
+.btn-ua-blue {
+  background: linear-gradient(135deg, #0057b7 0%, #0072ff 100%);
+  color: #ffffff;
+  border: none;
+  font-weight: 600;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 87, 183, 0.4);
+  transition: all 0.3s ease;
+}
+
+.btn-ua-blue:hover {
+  background: linear-gradient(135deg, #004494 0%, #0057b7 100%);
+  color: #ffffff;
+  box-shadow: 0 0 25px rgba(0, 114, 255, 0.6);
+  transform: scale(1.02);
+}
+
+.btn-ua-yellow {
+  background: linear-gradient(135deg, #ffd700 0%, #ffea00 100%);
+  color: #0f172a;
+  border: none;
+  font-weight: 700;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-ua-yellow:hover {
+  background: linear-gradient(135deg, #e6c200 0%, #ffd700 100%);
+  color: #000000;
+  box-shadow: 0 0 25px rgba(255, 234, 0, 0.6);
+  transform: scale(1.02);
+}
+
+.btn-admin-danger {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-admin-danger:hover {
+  background: #ef4444;
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.5);
+}
+
+/* Forms */
+.form-control, .form-select {
+  background-color: rgba(15, 23, 42, 0.9) !important;
+  border: 1px solid rgba(0, 87, 183, 0.4) !important;
+  color: #ffffff !important;
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--ua-yellow) !important;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3) !important;
+}
+
+.form-label {
+  color: #38bdf8;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Badges & Text Accents */
+.badge-category {
+  background: rgba(0, 87, 183, 0.25);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: #38bdf8;
+  padding: 0.35em 0.75em;
+  border-radius: 8px;
+}
+
+.text-gold {
+  color: var(--ua-yellow) !important;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+/* Tables */
+.table-patriotic {
+  color: #e2e8f0;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.table-patriotic th {
+  background: rgba(0, 87, 183, 0.3);
+  color: #38bdf8;
+  font-weight: 700;
+}
+
+.table-patriotic td {
+  background: rgba(15, 23, 42, 0.6);
+  vertical-align: middle;
+}
+
+/* Stats Widget */
+.stat-card {
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.9));
+  border-left: 4px solid var(--ua-yellow);
+  border-radius: 12px;
+  padding: 1.25rem;
+}

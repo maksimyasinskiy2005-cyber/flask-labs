@@ -62,7 +62,7 @@ def add_product():
             'created_at': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         }
         db.insert(product_data)
-        flash("Товар успішно додано!", "success")
+        flash("🇺🇦 Товар успішно додано в каталог!", "success")
         return redirect(url_for('products.list_products'))
 
     return render_template('add.html', form=form)

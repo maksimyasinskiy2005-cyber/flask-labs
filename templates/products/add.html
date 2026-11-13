@@ -1,23 +1,27 @@
 {% extends "base.html" %}
 {% from "_render_field.html" import render_field %}
 
-{% block title %}Додати товар{% endblock %}
+{% block title %}Додати Товар — UA Store{% endblock %}
 
 {% block content %}
 <div class="row justify-content-center">
   <div class="col-md-8">
-    <h2>Додавання нового товару</h2>
-    <form method="POST" action="{{ url_for('products.add_product') }}" enctype="multipart/form-data" novalidate>
-      {{ form.hidden_tag() }}
-      {{ render_field(form.name) }}
-      {{ render_field(form.content) }}
-      {{ render_field(form.price) }}
-      {{ render_field(form.category) }}
-      {{ render_field(form.quantity) }}
-      {{ render_field(form.image) }}
-      <button type="submit" class="btn btn-success mt-3">Зберегти товар</button>
-      <a href="{{ url_for('products.list_products') }}" class="btn btn-secondary mt-3">Скасувати</a>
-    </form>
+    <div class="card card-patriotic p-4 p-md-5">
+      <h2 class="fw-bold text-gold mb-4"><i class="bi bi-plus-circle me-2"></i> Додавання Нового Товару</h2>
+      <form method="POST" action="{{ url_for('products.add_product') }}" enctype="multipart/form-data" novalidate>
+        {{ form.hidden_tag() }}
+        {{ render_field(form.name) }}
+        {{ render_field(form.content) }}
+        {{ render_field(form.price) }}
+        {{ render_field(form.category) }}
+        {{ render_field(form.quantity) }}
+        {{ render_field(form.image) }}
+        <div class="d-flex gap-3 mt-4">
+          <button type="submit" class="btn btn-ua-yellow px-5 py-2 fw-bold">Зберегти Товар</button>
+          <a href="{{ url_for('products.list_products') }}" class="btn btn-outline-light px-4 py-2">Скасувати</a>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
 {% endblock %}

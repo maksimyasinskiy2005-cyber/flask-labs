@@ -1,21 +1,28 @@
 {% extends "base.html" %}
 {% from "_render_field.html" import render_field %}
 
-{% block title %}Контактна форма{% endblock %}
+{% block title %}Зв'язатися з нами — UA Store{% endblock %}
 
 {% block content %}
 <div class="row justify-content-center">
-  <div class="col-md-6">
-    <h2 class="mb-3">Зв'язатися з нами</h2>
-    <form method="POST" action="{{ url_for('contact') }}" novalidate>
-      {{ form.hidden_tag() }}
-      {{ render_field(form.name) }}
-      {{ render_field(form.email) }}
-      {{ render_field(form.phone) }}
-      {{ render_field(form.subject) }}
-      {{ render_field(form.message) }}
-      <button type="submit" class="btn btn-primary w-100 mt-2">{{ form.submit.label.text }}</button>
-    </form>
+  <div class="col-md-7 col-lg-6">
+    <div class="card card-patriotic p-4 p-md-5">
+      <div class="text-center mb-4">
+        <h2 class="fw-bold text-gold"><i class="bi bi-chat-left-dots-fill me-2"></i> Зворотний Зв'язок</h2>
+        <p class="text-muted small">Заповніть форму нижче для надсилання вашого запиту</p>
+      </div>
+      <form method="POST" action="{{ url_for('contact') }}" novalidate>
+        {{ form.hidden_tag() }}
+        {{ render_field(form.name) }}
+        {{ render_field(form.email) }}
+        {{ render_field(form.phone) }}
+        {{ render_field(form.subject) }}
+        {{ render_field(form.message) }}
+        <button type="submit" class="btn btn-ua-yellow w-100 py-3 mt-3 fs-5">
+          <i class="bi bi-send-fill me-2"></i> {{ form.submit.label.text }}
+        </button>
+      </form>
+    </div>
   </div>
 </div>
 {% endblock %}
