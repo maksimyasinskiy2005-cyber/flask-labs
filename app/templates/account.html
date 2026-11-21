@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Account{% endblock %}
+
+{% block content %}
+<div class="card shadow-sm p-4 mb-3">
+    <h1 class="display-6 fw-bold">Welcome, {{ current_user.username }}!</h1>
+    <p class="fs-5 mb-2">You have successfully logged in to your profile.</p>
+    <p class="fs-5 text-muted mb-0">Email: {{ current_user.email }}</p>
+</div>
+
+<a href="{{ url_for('user.logout') }}" class="btn btn-danger">Logout</a>
+{% endblock %}

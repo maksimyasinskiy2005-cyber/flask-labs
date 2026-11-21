@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<article class="card shadow-sm">
+    <div class="card-body">
+        <h1>{{ post.title }}</h1>
+        <p class="text-muted">Post ID: {{ post.id }}</p>
+        <div class="post-content my-3">{{ post.content }}</div>
+
+        <ul class="list-unstyled mt-3">
+            <li><strong>Category:</strong> {{ post.category }}</li>
+            <li><strong>Author:</strong> {{ post.user.username }} ({{ post.user.email }})</li>
+            <li><strong>Дата публікації:</strong> {{ post.publish_date.strftime('%Y-%m-%d %H:%M:%S') }}</li>
+            <li class="mt-2">
+                <strong>Tags:</strong>
+                {% if post.tags %}
+                    {% for tag in post.tags %}
+                        <span class="tag-badge">{{ tag.name }}</span>{% if not loop.last %} / {% endif %}
+                    {% endfor %}
+                {% else %}
+                    <span class="text-muted">Немає тегів</span>
+                {% endif %}
+            </li>
+        </ul>
+
+        <a href="{{ url_for('post.index') }}" class="btn btn-outline-secondary mt-3">Назад до списку</a>
+    </div>
+</article>
+{% endblock %}
